@@ -1,5 +1,5 @@
 {
-    "name": "kamansoft/laravel-blame",
+    "name": "akyrahub/laravel-blame",
     "description": "A tool to easily work with the updated_by and created_by fields on your laravel eloquent models  ",
     "keywords": [
         "kamansoft",
