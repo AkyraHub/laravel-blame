@@ -25,7 +25,6 @@ trait ModelBlamer
         $creator_field_name = config('blame.created_by_field_name');
         $updater_field_name = config('blame.updated_by_field_name');
         $blamed = $this->getUserToBlamePk();
-        Log::info(static::class.' on create, blames to user: '.$blamed);
         $this->$creator_field_name = $this->$updater_field_name = $blamed;
     }
 
@@ -35,7 +34,6 @@ trait ModelBlamer
         if (Auth::check()) {
             $to_return = Auth::user()->getKey();
         } else {
-            Log::warning(static::class.' Not logged user using system user');
             $to_return = config('blame.system_user_id');
         }
 
@@ -46,7 +44,6 @@ trait ModelBlamer
     {
         $updater_field_name = config('blame.updated_by_field_name');
         $blamed = $this->getUserToBlamePk();
-        Log::info(static::class.' on update, blames to user: '.$blamed);
         $this->$updater_field_name = $blamed;
     }
 
